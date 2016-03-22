@@ -10,9 +10,6 @@ def main():
 	return render_template('main.html')
 
 
-
-
-
 # start the development server using the run() method
 if __name__== "__main__":
 	app.run(debug=True)
