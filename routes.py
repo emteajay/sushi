@@ -14,7 +14,10 @@ app.config.from_object(__name__)
 def main():
 	params = {"term": "sushi", "location": "94114", "radius_filter": "2000"}
 	#Obtain these from Yelp's manage access page
-	
+	consumer_key = "QQ7L1p_3MkFRgpX-hzt7rg"
+	consumer_secret = "uNmAp-I10ojRR21PF1po2ozOPL0"
+	token = "ZL2T198lJWyMlVunsfbEUpFsZQgreh6H"
+	token_secret = "gbBImwNN0DoJ-Z0BcE0Yt8r_Hq0"
 
 	session = rauth.OAuth1Session(
 	consumer_key = consumer_key

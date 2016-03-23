@@ -3,6 +3,10 @@
 {% block content %}
 	<h2>Sushi Now!</h2>
 	<img src="static/sushi1.png">
+	<form action="" method="post">
+		location: <input type="text" name = "location" value={{ request.form.location }}>
+		<button type="subimt">submit</button>
+	</form>
 		<table style="width:100%">
 			<tr>
 				<th>Name</th>
