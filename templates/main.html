@@ -1,7 +1,24 @@
 {% extends "template.html" %} 
 
 {% block content %}
-	<h2>Welcome to Sushi!</h2>
-	<img src="static/sushi1.png"> 
+	<h2>Sushi Now!</h2>
+	<img src="static/sushi1.png">
+		<table style="width:100%">
+			<tr>
+				<th>Name</th>
+				<th>Rating</th>
+				<th>Review Count</th>
+				<th>Neighborhood</th>
+			</tr>
+	{% for i in data["businesses"]: %}
+			<tr>	
+				<td>{% print i["name"] %}</td>	
+				<td>{% print i["rating"] %}</td>	
+				<td>{% print i["review_count"] %}</td>
+				<!-- have issues with neighborhood when more than one listed -->
+				<td>{% print i["location"]["neighborhoods"][0] %}</td>
+			</tr>
+	{% endfor %}
+		</table>
 {% endblock %}
 

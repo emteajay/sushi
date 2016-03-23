@@ -23,3 +23,12 @@ h2 {
 	color: #fff;
 	padding: 0.5em;
 }
+
+table, th, td {
+    /*border: 1px solid black;*/
+    border-collapse: collapse;
+    text-align: center;
+}
+th, td {
+    padding: 15px;
+}
