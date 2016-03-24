@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, session, flash, redirect, url
 import requests
 import rauth
 import json
-
+import cgi
+# import pdb
 
 
 app = Flask(__name__)
@@ -10,9 +11,27 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 app.config.from_object(__name__)
 
+
+# def get_location():
+# 	find_location = request.form['post']
+# 	get_location = request.form['location']
+# 	return get_location	
+
 @app.route("/")
 def main():
-	params = {"term": "sushi", "location": "94114", "radius_filter": "2000"}
+	return render_template('main.html')	
+
+
+@app.route("/city")
+def city_search():
+	# formData = cgi.FieldStorage()
+	# get_location = formData.getvalue('location')
+	# request.method == "POST"
+	# get_location = request.method["location"]	
+	params = {"term": "sushi", "radius_filter": "2000"}
+	params["location"] = ["seattle"]
+	# params['location'] = [get_location]
+	# params["location"] = location
 	#Obtain these from Yelp's manage access page
 
 
@@ -27,8 +46,7 @@ def main():
 #Transforms the JSON API response into a Python dictionary
 	data = request.json()
 	session.close()
-	return render_template('main.html', data=data)
-
+	return render_template('results.html', data=data)
 # start the development server using the run() method
 if __name__== "__main__":
 	app.run(debug=True)
