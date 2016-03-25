@@ -3,9 +3,9 @@
 {% block content %}
 	<h2>Sushi Now!</h2>
 	<img src="static/sushi1.png">
-	<form action="/city" name = "location">
-		location: <input type="text" name = "location" value="{{ request.form.location }}">
-		<button type="subimt">submit</button>
+	<form action="/city" method="post">
+		City: <input type="text" name="location", value="{{ request.form.location }}">
+		<button type="submit">submit</button>
 	</form>
 {% endblock %}
 
