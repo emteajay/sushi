@@ -5,35 +5,21 @@ import json
 
 # import pdb
 
-
 app = Flask(__name__)
 
 app.config["DEBUG"] = True
 app.config.from_object(__name__)
 
-
-# def get_location():
-# 	find_location = request.form['post']
-# 	get_location = request.form['location']
-# 	return get_location	
-
 @app.route("/")
 def main():
 	return render_template('main.html')	
 
-
 @app.route("/city", methods=["GET", "POST"])
 def city_search():
 	get_location = request.form["location"]
-	# formData = cgi.FieldStorage()
-	# get_location = formData.getvalue('location')
-	# request.method == "POST"
-	# get_location = request.method["location"]	
 	params = {"term": "sushi", "radius_filter": "2000"}
 	params["location"] = [get_location]
-	# params['location'] = [get_location]
-	# params["location"] = location
-	#Obtain these from Yelp's manage access page
+	
 
 
 	session = rauth.OAuth1Session(

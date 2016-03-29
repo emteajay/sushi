@@ -1,5 +1,6 @@
 body {
 	font-family: helvetica;
+	background: #eee;
 }
 
 .container {
@@ -29,6 +30,7 @@ table, th, td {
     border-collapse: collapse;
     text-align: center;
 }
+
 th, td {
     padding: 15px;
 }
@@ -41,4 +43,5 @@ form {
     padding: 1em;
     text-align: center;
 }
+
 
