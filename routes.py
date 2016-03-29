@@ -20,6 +20,7 @@ def city_search():
 	params = {"term": "sushi", "radius_filter": "2000"}
 	params["location"] = [get_location]
 	
+	#Obtain these from Yelp's manage access page
 
 
 	session = rauth.OAuth1Session(

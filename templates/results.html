@@ -4,22 +4,31 @@
 	<h2>Homer likes {% print(request.form["location"]) %}!</h2>
 	<img src="static/homer-sushi-o.gif">
 		<table style="width:100%">
-			<tr>
-				<th>Name</th>
-				<th>Rating</th>
-				<th>Review Count</th>
-				<th>Neighborhood</th>
-			</tr>
-	{% for i in data["businesses"]: %}
-		{% if i["rating"] > 4.0: %}		
-				<tr>	
-					<td>{% print(i["name"]) %}</td>	
-					<td>{% print(i["rating"]) %}</td>	
-					<td>{% print(i["review_count"]) %}</td>
-					<!-- have issues with neighborhood when more than one listed -->
-					<td>{% print(i["location"]["neighborhoods"][0]) %}</td>
-				</tr>
-		{% endif %}
-	{% endfor %}		
+		<tr>
+			<th>Name</th>
+			<th>Rating</th>
+			<th>Review Count</th>
+			<th>Neighborhood</th>
+		</tr>
+		{% for i in data["businesses"]: %}
+			{% if i["rating"] >= 4: %}		
+					<tr>	
+						<td><a href={{ i["url"] }}>{% print(i["name"]) %}</td>	
+						<td>{% print(i["rating"]) %}</td>	
+						<td>{% print(i["review_count"]) %}</td>
+						<!-- have issues with neighborhood when more than one listed -->
+						<td>{% print(i["location"]["neighborhoods"][0]) %}</td>
+					</tr>
+			{% endif %}
+		{% endfor %}		
 		</table>
 {% endblock %}
+
+<!-- 	<label>star minimum</label>
+	<select name="min_star" width="100px">
+		<option value="5">5</option>
+		<option value="4">4</option>
+		<option value="3">3</option>
+		<option value="2">2</option>
+		<option value="1">1</option>
+	</select> -->
