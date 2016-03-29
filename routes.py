@@ -36,6 +36,12 @@ def city_search():
 	session.close()
 	return render_template('results.html', data=data)
 # start the development server using the run() method
+
+@app.route("/jiro_movie")
+def jiro():
+    return render_template("jiro.html")
+
+
 if __name__== "__main__":
 	app.run(debug=True)
 
