@@ -1,7 +1,10 @@
 {% extends "template.html" %}
 
 {% block content %}
-    <body bgcolor="#000000">
-	<iframe width="560" height="315" src="https://www.youtube.com/embed/G2edsT-HCjE" frameborder="0" allowfullscreen></iframe>
-    </body>
+<style type="text/css">
+   body { background: black !important; }
+</style>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/G2edsT-HCjE" frameborder="0" allowfullscreen></iframe>
+    </div>
 {% endblock %}

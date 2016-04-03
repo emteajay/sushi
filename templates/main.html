@@ -1,12 +1,14 @@
-{% extends "template.html" %} 
+{% extends "template.html" %}
 
 {% block content %}
 	<h2>Sushi Now!</h2>
 	<img src="static/sushi1.png">
-	<form action="/city" method="post">
-		city: <input type="text" name="location", value="{{ request.form.location }}">
-		<button type="submit">submit</button>
+	<form class="form-inline" action="/city" method="post">
+	    <div class"form-group">
+	        <label for="city"></label>
+		    <input type="text" placeholder="enter city" class="form-control" id="city" name="location", value="{{ request.form.location }}">
+		    <button type="submit"class="btn btn-primary">submit</button>
+	    </div>
 	</form>
-
 {% endblock %}
 
