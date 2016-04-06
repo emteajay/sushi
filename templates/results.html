@@ -3,36 +3,47 @@
 {% block content %}
 <!--<body background="static/hok_waves.jpg">-->
 	<div class="container-fluid bg-1 text-center">
-	<h3 class="margin">Homer likes {% print(request.form["location"].title()) %}!</h3>
-	<a href="/jiro_movie"><img class="img-rounded" src="static/homer-sushi-o.gif"></a>
-	<br>
-	<br>
+		<h3 class="margin">Homer likes {% print(request.form["location"].title()) %}!</h3>
+		<a href="/jiro_movie"><img class="img-rounded" src="static/homer-sushi-o.gif"></a>
+		<br>
+		<br>
 	</div>
 	<div class="container-fluid bg-2 text-center">
-		<table class="table table-striped">
         <ul class="nav nav-pills nav-justified">
-            <li role="presentation" class="active"><a href="#">Listings</a></li>
-            <li role="presentation"><a href="#">Map</a></li>
+            <li class="active"><a data-toggle="pill" href="#menu1">Listings</a></li>
+            <li><a data-toggle="pill" href="#menu2">Map</a></li>
         </ul>
-			<tr class="success">
-				<th>Name</th>
-				<th>Rating</th>
-				<th>Review Count</th>
-				<th>Neighborhood</th>
-			</tr>
-	    {% for i in data["businesses"]: %}
-		    {% if i["rating"] >= 4.0: %}
-			    <tr>
-				    <td><a href={{ i["url"] }}>{% print(i["name"]) %}</td>
-				    <td>{% print(i["rating"]) %}</td>
-				    <td>{% print(i["review_count"]) %}</td>
-				    <!-- have issues with neighborhood when more than one listed -->
-				    <td>{% print(i["location"]["neighborhoods"][0]) %}</td>
-			    </tr>
-	        {% endif %}
-	    {% endfor %}
-		</table>
-	</div>
+        <div class="tab-content">
+        	<div id="menu1" class="tab-pane fade">
+			    <div>
+					<table class="table table-striped">
+					<tr class="success">
+						<th>Name</th>
+						<th>Rating</th>
+						<th>Review Count</th>
+						<th>Neighborhood</th>
+					</tr>
+				    {% for i in data["businesses"]: %}
+					    {% if i["rating"] >= 4.0: %}
+						    <tr>
+							    <td><a href={{ i["url"] }}>{% print(i["name"]) %}</td>
+							    <td>{% print(i["rating"]) %}</td>
+							    <td>{% print(i["review_count"]) %}</td>
+							    <!-- have issues with neighborhood when more than one listed -->
+							    <td>{% print(i["location"]["neighborhoods"][0]) %}</td>
+						    </tr>
+				        {% endif %}
+				    {% endfor %}
+					</table>
+				</div>
+        	</div>
+        	<div id="menu2" class="tab-pane fade">
+    			<h3>Menu 2</h3>
+  				<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        	</div>
+        </div>
+    </div>    
+        
     <!-- Footer -->
     <footer class="container-fluid bg-4 text-center">
     <p>Brought To You By <a href="http://www.michaeljoyce.me">Michael Joyce</a><img class="img-rounded" src="static/boy-rowing-boat-animation.gif"></p>
