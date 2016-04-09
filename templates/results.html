@@ -26,11 +26,11 @@
 				    {% for i in data["businesses"]: %}
 					    {% if i["rating"] >= 4.0: %}
 						    <tr>
-							    <td><a href={{ i["url"] }}>{% print(i["name"]) %}</td>
+							    <td align="left"><a href={{ i["url"] }}>{% print(i["name"]) %}</td>
 							    <td>{% print(i["rating"]) %}</td>
 							    <td>{% print(i["review_count"]) %}</td>
 							    <!-- have issues with neighborhood when more than one listed -->
-							    <td>{% print(i["location"]["neighborhoods"][0]) %}</td>
+							    <td align="left">{% print(i["location"]["neighborhoods"][0]) %}</td>
 						    </tr>
 				        {% endif %}
 				    {% endfor %}
@@ -38,11 +38,13 @@
 				</div>
         	</div>
         	<div id="menu2" class="tab-pane fade">
-    			<iframe src="/map" style="border:0;width:1150px;height:362px" frameborder="0"></iframe>
+    			<iframe src="/map" style="border:0;width:100%;height:600px" frameborder="0"></iframe>
+        	    <br>
+                <a href="/map"><p>give me a bigger map!</p></a>
         	</div>
         </div>
-    </div>    
-        
+    </div>
+
     <!-- Footer -->
     <footer class="container-fluid bg-4 text-center">
     <p>Brought To You By <a href="http://www.michaeljoyce.me">Michael Joyce</a><img class="img-rounded" src="static/boy-rowing-boat-animation.gif"></p>

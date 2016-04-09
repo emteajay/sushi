@@ -10,6 +10,7 @@ app = Flask(__name__)
 app.config["DEBUG"] = True
 app.config.from_object(__name__)
 
+
 @app.route("/")
 def main():
 	return render_template('main.html')	
@@ -32,10 +33,13 @@ def city_search():
 	get_data = session.get("http://api.yelp.com/v2/search",params=params)
 
 #Transforms the JSON API response into a Python dictionary
+	
 	data = get_data.json()
+	
 	session.close()
 	return render_template('results.html', data=data)
 # start the development server using the run() method
+	
 
 @app.route("/jiro_movie")
 def jiro():
@@ -43,6 +47,8 @@ def jiro():
 
 @app.route("/map")
 def map():
+	# location_lat = data["region"]["center"]["latitude"]
+	# location_long = data["region"]["center"]["longitude"]
 	return render_template('map.html')	
 
 
